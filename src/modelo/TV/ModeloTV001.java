@@ -36,8 +36,8 @@ public class ModeloTV001 extends TV implements ControleRemoto {
             int aux = super.getVolume();
 
             if(aux < 100) {
+                super.setVolume(aux + 1);
                 vol += 1;
-                super.setVolume(aux + vol);
             } else {
                 break;
             }
