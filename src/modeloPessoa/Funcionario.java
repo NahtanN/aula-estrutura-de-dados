@@ -1,6 +1,7 @@
 package modeloPessoa;
 
 public class Funcionario extends Pessoa {
+
     private String codFunc;
     private String funcao;
     private String setor;
