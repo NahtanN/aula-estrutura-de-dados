@@ -32,7 +32,7 @@ public class ModeloTV001 extends TV implements ControleRemoto {
     public void aumentarVolume(int taxa) {
         int vol = 0;
 
-        while(vol != taxa) {
+        while(vol != taxa && taxa > 0) {
             int aux = super.getVolume();
 
             if(aux < 100) {
