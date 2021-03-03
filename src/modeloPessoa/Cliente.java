@@ -1,7 +1,6 @@
 package modeloPessoa;
 
 public class Cliente extends Pessoa {
-
     private String id;
     private String endereco;
 
