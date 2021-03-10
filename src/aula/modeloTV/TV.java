@@ -1,4 +1,4 @@
-package modelo.TV;
+package aula.modeloTV;
 
 public class TV {
     private int tamanho;

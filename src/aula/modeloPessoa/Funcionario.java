@@ -1,4 +1,4 @@
-package modeloPessoa;
+package aula.modeloPessoa;
 
 public class Funcionario extends Pessoa {
 

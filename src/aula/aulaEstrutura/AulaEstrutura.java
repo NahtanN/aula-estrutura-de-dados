@@ -1,6 +1,6 @@
-package aulaEstrutura;
+package aula.aulaEstrutura;
 
-import modeloPessoa.Pessoa;
+import aula.modeloPessoa.Pessoa;
 
 public class AulaEstrutura {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package modelo.TV;
+package aula.modeloTV;
 
 public interface ControleRemoto {
     void mudarCanal(int canal);
