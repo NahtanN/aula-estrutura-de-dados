@@ -1,4 +1,4 @@
-package aula.modeloPessoa;
+package aula.modelo.modeloPessoa;
 
 public class Pessoa {
 

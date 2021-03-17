@@ -1,4 +1,4 @@
-package aula.modeloTV;
+package aula.modelo.modeloTV;
 
 public class ModeloTV001 extends TV implements ControleRemoto {
 

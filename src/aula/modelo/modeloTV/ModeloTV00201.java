@@ -1,4 +1,4 @@
-package aula.modeloTV;
+package aula.modelo.modeloTV;
 
 public class ModeloTV00201 extends ModeloTV002 {
 
