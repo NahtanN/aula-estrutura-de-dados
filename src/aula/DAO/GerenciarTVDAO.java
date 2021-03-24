@@ -2,7 +2,7 @@ package aula.DAO;
 
 import aula.modelo.modeloTV.TV;
 
-public class GerenciarTVDAO implements GerenciarVetor {
+public class GerenciarTVDAO implements GerenciarVetor, GerenciarVetorRecursao {
 
     private TV[] registroTV;
     private boolean status;
@@ -72,6 +72,57 @@ public class GerenciarTVDAO implements GerenciarVetor {
                 break;
             }
         }
+    }
+
+    @Override
+    public void inserirValorRec(TV tv, int i) {
+        if(this.registroTV[i] == null && i < this.registroTV.length) {
+            this.registroTV[i] = tv;
+            System.out.println("Registro efetuado com sucesso!");
+        } else if(i == this.registroTV.length) {
+            System.out.println("Limete do vetor!");
+        } else {
+            i++;
+            inserirValorRec(tv, i);
+        }
+        /*else {
+            if(i == this.registroTV.length) {
+                System.out.println("Limete do vetor!");
+            } else {
+                i++;
+                inserirValorRec(tv, i);
+            }
+        }*/
+    }
+
+    @Override
+    public void consultarValorRec(String key, int i) {
+        if(this.registroTV[i].getCodigo().equals(key)) {
+            System.out.println("Tv encontrada na posição: " + i);
+        } else if(i == this.registroTV.length) {
+            System.out.println("Tv não encontrada!");
+        } else {
+            i++;
+            consultarValorRec(key, i);
+        }
+    }
+
+    @Override
+    public void excluirValorRec(String key, int i) {
+        if(this.registroTV[i].getCodigo().equals(key)) {
+            this.registroTV[i] = null;
+            System.out.println("Registro excluido com sucesso!");
+        } else if(i == this.registroTV.length) {
+            System.out.println("Tv não encontrado!");
+        } else {
+            i++;
+            excluirValorRec(key, i);
+        }
+    }
+
+    @Override
+    public void alterarValorRec(TV tv, int i) {
+
     }
 
     public void aumentarAlocacao() {
