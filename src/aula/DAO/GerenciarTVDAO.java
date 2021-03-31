@@ -122,7 +122,13 @@ public class GerenciarTVDAO implements GerenciarVetor, GerenciarVetorRecursao {
 
     @Override
     public void alterarValorRec(TV tv, int i) {
-
+        if(this.registroTV[i].getCodigo().equals(tv.getCodigo())) {
+            this.registroTV[i] = tv;
+            System.out.println("Dados alterados com sucesso!");
+        } else {
+            i++;
+            alterarValorRec(tv, i);
+        }
     }
 
     public void aumentarAlocacao() {
@@ -135,6 +141,15 @@ public class GerenciarTVDAO implements GerenciarVetor, GerenciarVetorRecursao {
     }
 
     public void exibirTodoResgistro() {
+        System.out.println("Exibição dos dados de todos os registros: ");
+        System.out.println("");
 
+        for(int i = 0; i < this.getRegistroTV().length; i++) {
+            System.out.println("--------");
+            System.out.println("Posição: " + i);
+            System.out.println("Código: " + this.registroTV[i].getCodigo());
+            System.out.println("Tamanho: " + this.registroTV[i].getTamanho());
+            System.out.println("");
+        }
     }
 }
