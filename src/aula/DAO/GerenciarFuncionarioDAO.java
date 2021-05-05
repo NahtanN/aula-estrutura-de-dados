@@ -14,6 +14,16 @@ public class GerenciarFuncionarioDAO implements ListaEnc {
         this.quantNo = 0;
     }
 
+    /*
+    * Método para inserir na lista
+    * 1 - Instanciar um novo No
+    * 2 - Verificar se a lista está vazia
+    * 3 - Se tiver vazia: add novo No na primeira posição
+    * 4 - Caso contrário: add novo No no próximo indicador da última posição
+    * 5 - Adicionar o novo No no atributo ultimo No
+    * 6 - Incrementar a quantidade de nós
+    * 7 - Notifica requisitos com sucesso
+    */
     @Override
     public void add(Funcionario funcionario) {
         No novoNo = new No(funcionario);
@@ -29,22 +39,112 @@ public class GerenciarFuncionarioDAO implements ListaEnc {
         System.out.println("Registro de Funcionario efetuado com sucesso!");
     }
 
+    /*
+    * 1 - Verificar se a lista está vazia
+    * 2 - Instanciar nó auxiliar (anterior) como nulo (null)
+    * 3 - Instanciar nó atual com a primeira posição da lista
+    * 4 - Criar estrutura de repetição que verificará se o nó atual é diferente de null e que tem
+    *     o nome do funcionário diferente da chave de busca
+    * 5 - Guardar o nó atual na instância do nó anterior e retornará ao nó atual o próximo nó
+    * 6 - Verifica se o nó atual é null e mostra falha na exclusão por registro não encontrado
+    * 7 - Verifica se o nó anterior é null: se a condição for verdadeira, significa que o valor a ser excluido
+    *     está na primeira posição
+    * 8 - Caso contrário, a instância anterior receberá o próximo nó do nó a ser excluido
+    */
     @Override
     public void remover(String nome) {
+        if(eVazia()) {
+            System.out.println("Não há registros para remover!");
+        } else {
+            No anterior = null;
+            No atual = this.primeiro;
 
+            while(atual != null && !atual.getFuncionario().getNome().equals(nome)) {
+                anterior = atual;
+                atual = atual.getProximoNo();
+            }
+
+            if(atual == null) {
+                System.out.println("Falha da exclusão: Registro não encontrado");
+            }
+
+            if(anterior == null) {
+
+                this.primeiro = atual.getProximoNo();
+                System.out.println("Registro excluido! Tipo 1");
+
+            } else {
+
+                anterior.setProximoNo(atual.getProximoNo());
+                System.out.println("Registro excluido! Tipo 2");
+
+            }
+        }
     }
 
+    /*
+    * 1 - Definir variávek status que será utilizada para verificação de registro (encontrado/não)
+    * 2 - Criar For Loop para percorrer a lista até o final
+    * 3 - Condição que verifica se o nome do funcionário é igual a chave passada para consulta
+    * 4 - Imprimir mensagem de registro encontrado caso exista retorno positivo do comparativo
+    * 5 - Parar o loop
+    * 6 - Verificar variável status: se false, exibir mensagem de registro não encontrado
+    */
     @Override
     public void consultar(String nome) {
+        boolean status = false;
 
+        for(No no = this.primeiro; no != null; no = no.getProximoNo()) {
+            if(no.getFuncionario().getNome().equals(nome)) {
+                System.out.println("Registro encontrado!");
+
+                status = true;
+
+                break;
+            }
+        }
+
+        if(!status) {
+            System.out.println("Registro não encontrado!");
+        }
     }
 
+    /*
+    * 1 - Laço para localização do funcionário que terá os dados alterados (chave = nome)
+    * 2 - Novo objeto funcionário é inserido no lugar do antigo
+    * 3 - Mensagem de alteração é exibida para o usuário
+    * 4 - Laço é interrompido
+    */
     @Override
     public void alterar(String nome, Funcionario funcionario) {
+        for(No no = this.primeiro; no != null; no = no.getProximoNo()) {
+            if(no.getFuncionario().getNome().equals(nome)) {
 
+                no.setFuncionario(funcionario);
+                System.out.println("Alteração realizada com sucesso!");
+
+                break;
+            }
+        }
     }
 
+    /*
+    * Método para verificar se a lista está vazia
+    */
     public boolean eVazia() {
         return (this.primeiro == null);
     }
+
+    /*
+    * Método para imprimir os nomes dos funcionários guardados na lista
+    * 1 - Realizar um Loop começando do primeiro Nó até o último da lista
+    * 2 - Imprimir o nome do funcionário
+    */
+    public void imprimirLista() {
+        for(No no = this.primeiro; no != null; no = no.getProximoNo()) {
+            System.out.print(no.getFuncionario().getNome() + " -> ");
+        }
+        System.out.println("");
+    }
+
 }
