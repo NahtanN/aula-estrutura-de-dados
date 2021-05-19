@@ -1,7 +1,6 @@
 package aula;
 
-import aula.DAO.GerenciarClienteArraylistDAO;
-import aula.DAO.GerenciarClienteVectorDAO;
+import Atividades.atividade03.DAO.GerenciarClienteVectorDAO;
 import aula.modelo.modeloPessoa.Cliente;
 
 public class teste {

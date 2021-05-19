@@ -1,4 +1,4 @@
-package aula.DAO;
+package Atividades.atividade03.DAO;
 
 import aula.modelo.modeloPessoa.Cliente;
 
@@ -22,9 +22,10 @@ public class GerenciarClienteArraylistDAO {
             System.out.println("");
 
         } catch (Exception err) {
-            System.out.println("Ocorreu algum error!");
+            System.out.println("Ocorreu algum error na inserção do cliente!");
         } finally {
 
+            // Organiza os clientes em ordem alfabética
             Collections.sort(this.clientes, new Comparator<Cliente>() {
                 @Override
                 public int compare(Cliente c1, Cliente c2) {
@@ -40,6 +41,7 @@ public class GerenciarClienteArraylistDAO {
     }
 
     public void listarClientes() {
+
         this.clientes.forEach(cliente -> {
             System.out.println(cliente.getNome());
         });
@@ -54,7 +56,7 @@ public class GerenciarClienteArraylistDAO {
             System.out.printf("Cliente %s inserido na posição %d \n", cliente.getNome(), posicao);
 
         } catch(Exception err) {
-            System.out.println("Ocorreu algum error!");
+            System.out.println("Ocorreu algum error na alteração do cliente!");
         }
     }
 
@@ -67,7 +69,7 @@ public class GerenciarClienteArraylistDAO {
             System.out.printf("Cliente %s removido com sucesso!\n", cliente.getNome());
 
         } catch(Exception err) {
-            System.out.println("Ocorreu algum error!");
+            System.out.println("Ocorreu algum error na remoção do cliente!");
         }
 
     }
