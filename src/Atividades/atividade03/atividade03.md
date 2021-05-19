@@ -34,12 +34,12 @@ randômico, e os seus métodos get e set são mais lentos do que o ArrayList. Em
 <br />
 
 ## Atividade 5 
-[clique aqui](https://github.com/NahtanN/aula-estrutura-de-dados/blob/master/src/aula/DAO/GerenciarClienteArraylistDAO.java)
+[clique aqui](https://github.com/NahtanN/aula-estrutura-de-dados/blob/master/src/Atividades/atividade03/DAO/GerenciarClienteArraylistDAO.java)
 
 <br />
 
 ## Atividade 6
-[clique aqui](https://github.com/NahtanN/aula-estrutura-de-dados/blob/master/src/aula/DAO/GerenciarClienteVectorDAO.java)
+[clique aqui](https://github.com/NahtanN/aula-estrutura-de-dados/blob/master/src/Atividades/atividade03/DAO/GerenciarClienteVectorDAO.java)
 
 <br />
 
